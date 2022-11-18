@@ -56,5 +56,4 @@ export type Action =
   | successModalAction
   | successModalDataAction
   | langAction
-  | showLanguageModal
-  | test;
+  | showLanguageModal;
