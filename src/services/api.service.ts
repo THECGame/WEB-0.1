@@ -33,7 +33,7 @@ export class APIService {
     apiRequest: APIRequest<T>,
   ): Promise<{ body: any; headers: Headers; status: number }> {
     const url = this.getURL(apiRequest) as any;
-    console.log("url he", url);
+    
     const method = apiRequest.getMethod() as any;
     const body = apiRequest.getBody();
     const headers = (await this.getHeaders(apiRequest)) as any;
@@ -44,14 +44,14 @@ export class APIService {
       data: body,
     })
       .then(async (response: any) => {
-        console.log({ response });
+        
         const body = await response.data;
         const headers = response.headers;
         const status = response.status;
         return { body, headers, status };
       })
       .catch(async (e: any) => {
-        console.log('Error on api call, url: ' + url + ' Error: ' + e);
+        
         //ResultCode
         return Promise.reject(e);
       });
