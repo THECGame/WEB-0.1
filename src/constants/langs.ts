@@ -76,13 +76,7 @@ export const getLangFile = (screen: string, lang: string) => {
       }
     default:
       notify(
-        "No translation file found for '" +
-          screen +
-          "' screen '" +
-          lang +
-          "' language",
-        "error"
-      );
+      `No translation file found for ${screen} - ${language} error `);
       switch (lang) {
         case "tr":
           return require("../assets/translations/Main/tr.json");
