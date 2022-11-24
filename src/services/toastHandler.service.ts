@@ -4,7 +4,6 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastType } from "../API/models/ToastModel";
 
 export const notify = (message: string, type: ToastType) => {
-    console.log("notify", message, type);
   switch (type) {
     case "success":
       toast.success(message, {
