@@ -3,14 +3,14 @@ import { TranslationService } from "../../services/translation.service";
 import { Props } from "./types";
 
 export function MainScreenComponent(props: Props) {
-  const t = TranslationService.translate;
+  const translateService = TranslationService.translate;
   const translationKey = "MainScrdseenasx";
 
   return (
     <div>
       Main PAGE Component HERE!
 
-      <div>{t(translationKey, "mainHere")}</div>
+      <div>{translateService(translationKey, "mainHere")}</div>
     </div>
   );
 }
