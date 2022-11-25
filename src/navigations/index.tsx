@@ -1,3 +1,4 @@
+import React from 'react';
 import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { NotFoundPage } from "../screens/NotFoundPage";
@@ -8,6 +9,7 @@ export function AppRouter() {
     setAllNavigator(MainScreenNavigator);
   }, []);
   //Navbar - Footer will added in after and before line is BrowserRouter
+  const notFoundPage = <Route path="*" element={<NotFoundPage />} />;
   return (
     <BrowserRouter>
       <main role={"main"}>
@@ -21,7 +23,7 @@ export function AppRouter() {
               />
             );
           })}
-          <Route path="*" element={<NotFoundPage />} />
+          {notFoundPage}
         </Routes>
       </main>
     </BrowserRouter>
