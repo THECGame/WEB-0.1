@@ -1,7 +1,7 @@
 import { Lang, getLangFile, Langs } from "../constants/langs";
 import { LangSwither } from "../utils/lang-switcher";
 export class TranslationService {
-  public translate(screen: string, key: string) {
+  public static translate(screen: string, key: string) {
     const lang = LangSwither.getLang().code;
     const path = getLangFile(screen, lang);
     return path[key] ? path[key] : key;
