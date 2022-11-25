@@ -7,7 +7,7 @@ import { MainApiMockService } from './mock/main-api.mock.service';
 export class ProfileApiService {
 
     static exampleGetData(): Promise<SliderModel> {
-        console.log(`calling exampleGetData`);
+        
         if (APIConfigService.getIsMock()) {
             return MainApiMockService.exampleGetData();
         }

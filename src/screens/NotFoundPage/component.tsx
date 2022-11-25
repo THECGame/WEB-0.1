@@ -1,4 +1,6 @@
+import React from 'react';
 export function Component(){
+
     return(
         <div>NOTFOUND</div>
     )

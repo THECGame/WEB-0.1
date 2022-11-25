@@ -1,4 +1,5 @@
-import { TranslationService } from "../services/translation.service";
+import { notify } from "../services/toastHandler.service";
+//import { TranslationService } from "../services/translation.service";
 
 export interface Lang {
   display: string;
@@ -10,7 +11,7 @@ export interface Lang {
 export const Langs = {
   EN: {
     display: "English",
-    code: "en", 
+    code: "en",
     //flag: "🇺🇸",
     isRTL: false,
   },
@@ -24,11 +25,16 @@ export const Langs = {
 
 export const defaultLang: Lang = {
   //get local storage lang
-  display: TranslationService.getLangFromStorage().display,
-  code: TranslationService.getLangFromStorage().code,
+  // display: TranslationService.getLangFromStorage().display,
+  // code: TranslationService.getLangFromStorage().code,
 
-  //flag: require('../assets/images/langs/tr.png'),
-  isRTL: TranslationService.getLangFromStorage().isRTL,
+  // //flag: require('../assets/images/langs/tr.png'),
+  // isRTL: TranslationService.getLangFromStorage().isRTL,
+
+  display: Langs.EN.display,
+  code: Langs.EN.code,
+  //flag: require('../assets/images/langs/en.png'),
+  isRTL: Langs.EN.isRTL,
 };
 
 export const langs: Lang[] = [
@@ -54,13 +60,29 @@ export const getLangFile = (screen: string, lang: string) => {
           return require("../assets/translations/Main/tr.json");
         case "en":
           return require("../assets/translations/Main/en.json");
+        default:
+          notify("Language not found", "error");
+          return require("../assets/translations/Main/en.json");
       }
-      break;
     case "languageSwitcher":
       switch (lang) {
         case "tr":
           return require("../assets/translations/Main/tr.json");
         case "en":
+          return require("../assets/translations/Main/en.json");
+        default:
+          notify("Language not found", "error");
+          return require("../assets/translations/Main/en.json");
+      }
+    default:
+      notify(`No translation file found for ${screen} - ${lang} error` , "error");
+      switch (lang) {
+        case "tr":
+          return require("../assets/translations/Main/tr.json");
+        case "en":
+          return require("../assets/translations/Main/en.json");
+        default:
+          notify("Language not found", "error");
           return require("../assets/translations/Main/en.json");
       }
   }

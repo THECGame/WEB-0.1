@@ -16,15 +16,13 @@ export class TranslationService {
   public static getLangFromStorage(): Lang {
     const selectedLang = localStorage.getItem("sercair");
     if (selectedLang) return JSON.parse(selectedLang);
-    else {
-      if (navigator.language === "tr-TR") {
-        localStorage.setItem("sercair", JSON.stringify(Langs.TR));
-        return Langs.TR;
-      } else {
-        localStorage.setItem("sercair", JSON.stringify(Langs.EN));
-        return Langs.EN;
-      }
+
+    if (navigator.language === "tr-TR") {
+      localStorage.setItem("sercair", JSON.stringify(Langs.TR));
+      return Langs.TR;
     }
+    localStorage.setItem("sercair", JSON.stringify(Langs.EN));
+    return Langs.EN;
   }
 
   public static getLang(): Lang {
