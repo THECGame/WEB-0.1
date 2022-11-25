@@ -3,6 +3,13 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastType } from "../API/models/ToastModel";
 
+/**
+ * Function used to call notification
+ * @param message -> message to be displayed on the screen
+ * @param type -> type to determine the type of notification
+ * @returns show toast message
+ */
+
 export const notify = (message: string, type: ToastType) => {
   switch (type) {
     case "success":
